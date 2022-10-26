@@ -35,7 +35,7 @@ const AnswersArea = (props) => {
 
     }
 
-    const updateCorrect = () => {
+    useEffect(() => {
         selectedAnswerObjects.forEach(object => {
             if (object.isSelected === true && object.answerText === props.correctAnswer) {
                 props.markCorrect();
@@ -43,11 +43,9 @@ const AnswersArea = (props) => {
                 props.markIncorrect();
             }
         })
-    }
+    }, [props, selectedAnswerObjects])
 
-    useEffect(() => {
-        updateCorrect();
-    });
+
 
     let answerBtns = selectedAnswerObjects.map(answerObject => {
         return (
