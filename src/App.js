@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import GameScreen from "./GameScreen";
+import BeginScreen from "./BeginScreen";
 
 function App() {
+
+  const [gameStatus, setGameStatus] = React.useState(false);
+
+  const startGame = () => {
+    setGameStatus(!gameStatus);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and HERE'S A TEST.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        {gameStatus === false ? <BeginScreen startGame={startGame} /> : <GameScreen />}
     </div>
   );
 }

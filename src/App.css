@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
+:root {
+  --darkPurple: #293264;
+  --lightPurple: #4D5B9E;
+  --offWhite: #F5F7FB;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  font-family: 'Karla', sans-serif;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh;
+
+  background-image: linear-gradient(to right, #6775bb, var(--offWhite) );
+
 }
 
-.App-link {
-  color: #61dafb;
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+  padding-top: 50%;
+  padding-bottom: 50%;
+  width: 75vw;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.begin-game-header {
+  color: var(--darkPurple);
+  text-align: center;
+  line-height: 2;
+ 
+}
+
+.begin-game-header > h1 {
+  font-size: 3rem;
+  letter-spacing: 1rem;
+}
+
+.begin-game-header > h3 {
+  font-size: 1.5rem;
+  letter-spacing: 0.5rem;
+}
+
+.start-game-btn {
+    margin-top: 100px;
+    background-color: var(--darkPurple);
+    color: var(--offWhite);
+    border: none;
+    padding: 10px 50px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 1.25rem;
+}
+
+.selected-button {
+  background-color: blue;
 }
