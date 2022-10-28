@@ -24,19 +24,20 @@ const Question = (props) => {
     const newStr = str.replace(reg, "'");
 
     return (
-        <div>
-            <h1>{newStr}</h1>
-            <div><AnswersArea
-                incorrectAnswers={incorrectAnswers}
-                correctAnswer={correctAnswer}
-                answers={props.answers}
-                markCorrect={() => setIsAnsweredCorrectly(true)}
-                markIncorrect={() => setIsAnsweredCorrectly(false)}
-                answered={() => setisAnswered(true)}
-            />
-            </div>
+        <div className="question-body">
+            <h1 className="question-header">{newStr}</h1>
+            <div className="all-answers">
+                <AnswersArea
+                    incorrectAnswers={incorrectAnswers}
+                    correctAnswer={correctAnswer}
+                    answers={props.answers}
+                    markCorrect={() => setIsAnsweredCorrectly(true)}
+                    markIncorrect={() => setIsAnsweredCorrectly(false)}
+                    answered={() => setisAnswered(true)}
+                />
 
-            <h3>{isAnswered ? displayIcon() : "Click the Right Answer"}</h3>
+            </div>
+            <h3>{isAnswered ? displayIcon() : null}</h3>
             <hr></hr>
         </div>
     )

@@ -26,14 +26,14 @@ const AnswersArea = (props) => {
         }
         const updatedAnswers = selectedAnswerObjects.map(answerObject => {
             if (answerObject.answerText === answerText) {
-               
+
                 return {
                     ...answerObject,
                     isSelected: !answerObject.isSelected,
-                   
+
                 }
             } else {
-              
+
                 return {
                     ...answerObject,
                     isSelected: false,
@@ -46,15 +46,13 @@ const AnswersArea = (props) => {
 
     let answerBtns = selectedAnswerObjects.map(answerObject => {
         return (
-            <button
-                key={nanoid()}
-                onClick={() => handleAnswerClick(answerObject.answerText)}
-                style={{
-                    backgroundColor: answerObject.isSelected
-                        ? "red"
-                        : "blue"
-                }}
-            >{answerObject.answerText}</button>
+                <button
+                    key={nanoid()}
+                    onClick={() => handleAnswerClick(answerObject.answerText)}
+                    className={answerObject.isSelected ? "selected-button" : "unselected-button"}
+                >{answerObject.answerText}</button>
+            
+
         )
     })
 

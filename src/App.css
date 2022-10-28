@@ -62,10 +62,55 @@ body {
     font-size: 1.25rem;
 }
 
-.selected-button {
-  background-color: blue;
-}
 
 .icon {
   height: 25px;
+}
+
+.question-header {
+  font-size: 1rem;
+}
+
+.questions-body {
+  background-color: #4d5b9e99;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.question-body {
+  padding: 20px;
+}
+
+.answers-area {
+  display: flex;
+  justify-content: center;
+}
+
+.all-answers > * {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.all-answers > * > button {
+  width: 25%;
+  height: 30px;
+  margin: 10px;
+  border-radius: 5px;
+  font-weight:700;
+  background-color: "#0000ff00";
+}
+
+.selected-button {
+  background-color: var(--lightPurple);
+  border: none;
+  color: #0000ffa1;
+}
+
+.unselected-button {
+  background-color: #0000ff00;
+  border: 1px solid blue;
+  color: blue;
 }
