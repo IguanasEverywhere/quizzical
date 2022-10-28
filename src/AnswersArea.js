@@ -14,9 +14,11 @@ const AnswersArea = (props) => {
         })
     });
 
+
     const [selectedAnswerObjects, setSelectedAnswerObjects] = React.useState(answerObjects);
 
     const handleAnswerClick = (answerText) => {
+        props.answered();
         const updatedAnswers = selectedAnswerObjects.map(answerObject => {
             if (answerObject.answerText === answerText) {
                 return {
@@ -59,7 +61,6 @@ const AnswersArea = (props) => {
                 }}
             >{answerObject.answerText}</button>
         )
-
     })
 
     return (

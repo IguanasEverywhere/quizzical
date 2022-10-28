@@ -10,9 +10,11 @@ function App() {
   const startGame = () => {
     setGameStatus(!gameStatus);
   }
+
+
   return (
     <div>
-        {gameStatus === false ? <BeginScreen startGame={startGame} /> : <GameScreen />}
+        {gameStatus === false ? <BeginScreen startGame={startGame} /> : <GameScreen startGame={startGame}/>}
     </div>
   );
 }
