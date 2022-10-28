@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { nanoid } from "nanoid";
 
 const AnswersArea = (props) => {
 
-    const rawAnswers = [...props.incorrectAnswers, props.correctAnswer];
-
     const answerObjects = [];
-    rawAnswers.forEach(answer => {
+
+    props.answers.forEach(answer => {
         answerObjects.push({
             key: nanoid(),
             answerText: answer,
@@ -18,15 +17,23 @@ const AnswersArea = (props) => {
     const [selectedAnswerObjects, setSelectedAnswerObjects] = React.useState(answerObjects);
 
     const handleAnswerClick = (answerText) => {
+        console.log("Answer text is " + answerText + " and correct is " + props.correctAnswer)
         props.answered();
+        if (answerText === props.correctAnswer) {
+            props.markCorrect();
+        } else {
+            props.markIncorrect();
+        }
         const updatedAnswers = selectedAnswerObjects.map(answerObject => {
             if (answerObject.answerText === answerText) {
+               
                 return {
                     ...answerObject,
                     isSelected: !answerObject.isSelected,
+                   
                 }
             } else {
-
+              
                 return {
                     ...answerObject,
                     isSelected: false,
@@ -34,19 +41,7 @@ const AnswersArea = (props) => {
             }
         })
         setSelectedAnswerObjects(updatedAnswers);
-
     }
-
-    useEffect(() => {
-        selectedAnswerObjects.forEach(object => {
-            if (object.isSelected === true && object.answerText === props.correctAnswer) {
-                props.markCorrect();
-            } else {
-                props.markIncorrect();
-            }
-        })
-    }, [props, selectedAnswerObjects])
-
 
 
     let answerBtns = selectedAnswerObjects.map(answerObject => {

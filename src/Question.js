@@ -19,7 +19,7 @@ const Question = (props) => {
         return icon;
     }
 
-    const reg = /&#039;|&quot;/g
+    const reg = /&#039;|&quot;|&ldquo;|&rsquo;|&rdquo;/g
     const str = props.quest;
     const newStr = str.replace(reg, "'");
 
@@ -29,6 +29,7 @@ const Question = (props) => {
             <div><AnswersArea
                 incorrectAnswers={incorrectAnswers}
                 correctAnswer={correctAnswer}
+                answers={props.answers}
                 markCorrect={() => setIsAnsweredCorrectly(true)}
                 markIncorrect={() => setIsAnsweredCorrectly(false)}
                 answered={() => setisAnswered(true)}
